@@ -22,7 +22,7 @@ export const crear = async (req: Request, res: Response): Promise<void>=> {
 
         await prisma.song.create({ data });
 
-        res.status(201).json({ ok:true, message: "Usuario creado correctamente" });
+        res.status(201).json({ ok:true, message: "Canción creada correctamente" });
     } catch (error) {
         res.status(500).json({ ok: false, message: error });
     }
