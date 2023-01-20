@@ -33,7 +33,7 @@ model Song {
   duration   Int
   updated_at DateTime @updatedAt
 
-  playlist_songs Playlist_songs[]
+  playlist_songs Playlist_song[]
 
   @@map("songs")
 }
@@ -46,7 +46,7 @@ model Playlist {
   user    User   @relation(fields: [user_id], references: [id])
   user_id Int
 
-  playlist_songs Playlist_songs[]
+  playlist_songs Playlist_song[]
 
   @@map("playlists")
 }
