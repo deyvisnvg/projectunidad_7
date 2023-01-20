@@ -53,10 +53,12 @@ model Playlist {
 
 
 
-model Playlist_songs {
+model Playlist_song {
    id   Int    @id @default(autoincrement())
    playlist   Playlist   @relation(fields: [playlist_id], references: [id])
    playlist_id Int
    songs   Song   @relation(fields: [song_id], references: [id])
    song_id Int  
+
+   @@map("playlist_songs")
 }
