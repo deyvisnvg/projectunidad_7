@@ -3,9 +3,21 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export const findAll = async (_req: Request, res: Response): Promise<void>=> {
+export const findAll = async (req: Request, res: Response): Promise<void>=> {
+    //const token = req.headers
+    const token = 0;
+    let songs = [];
     try {
-        const songs = await prisma.song.findMany();
+        if (token){
+            songs = await prisma.song.findMany();
+        }else{
+            songs = await prisma.song.findMany({
+                where: {
+                    status: false,
+                }
+            });
+        }
+        
 
         res.status(200).json({
             ok: true,
@@ -15,6 +27,22 @@ export const findAll = async (_req: Request, res: Response): Promise<void>=> {
         res.status(500).json({ ok: false, message: error });
     }
 };
+
+
+export const findById = async (req: Request, res: Response): Promise<void>=> {
+    try {
+        const { id } = req.params;
+        const songs = await prisma.song.findFirst({where: { id: Number(id) }})
+
+        res.status(200).json({
+            ok: true,
+            data: songs,
+        });
+    } catch (error) {
+        res.status(500).json({ ok: false, message: error });
+    }
+};
+
 
 export const crear = async (req: Request, res: Response): Promise<void>=> {
     try {
@@ -27,3 +55,21 @@ export const crear = async (req: Request, res: Response): Promise<void>=> {
         res.status(500).json({ ok: false, message: error });
     }
 };
+
+
+// export const song_private = async (_req: Request, res: Response): Promise<void>=> {
+//     try {
+//         const songs = await prisma.song.findMany({
+//             where: {
+//                 status: true,
+//             }
+//         });
+
+//         res.status(200).json({
+//             ok: true,
+//             data: songs,
+//         });
+//     } catch (error) {
+//         res.status(500).json({ ok: false, message: error });
+//     }
+// };
