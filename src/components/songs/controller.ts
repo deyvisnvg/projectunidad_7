@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export const findAll = async (req: Request, res: Response): Promise<void>=> {
     //const token = req.headers
-    const token = 0;
+    const token = 1;
     let songs = [];
     try {
         if (token){
