@@ -29,6 +29,7 @@ model Song {
   year       Int
   genero     String
   duration   Int
+  status     Boolean @default(false)
   updated_at DateTime @updatedAt
 
   playlist_songs Playlist_song[]
