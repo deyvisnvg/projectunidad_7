@@ -22,9 +22,6 @@ export const findAll = async (req: Request, res: Response): Promise<void> => {
 export const findId = async (req: Request, res: Response): Promise<void> => {
     try {
         const { params } = req;
-        const { body } = req;
-
-        console.log(body)
 
         const user = await prisma.user.findFirst({
             where: {
@@ -69,8 +66,6 @@ export const login = async (req: Request, res: Response): Promise<void> => {
             where: { email }
         });
 
-        console.log(user)
-
         if (user) {
             const valid_pass = await matchPassword(password, user.password);
 
@@ -106,10 +101,4 @@ export const login = async (req: Request, res: Response): Promise<void> => {
     } catch (error) {
         res.status(500).json({ error });
     }
-}
-
-const generateToken = async (email: string, password: string) => {
-    const user = await prisma.user.findFirst({
-        where: { email: email }
-    });
 }
