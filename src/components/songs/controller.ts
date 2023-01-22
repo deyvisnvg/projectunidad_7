@@ -55,21 +55,3 @@ export const crear = async (req: Request, res: Response): Promise<void>=> {
         res.status(500).json({ ok: false, message: error });
     }
 };
-
-
-// export const song_private = async (_req: Request, res: Response): Promise<void>=> {
-//     try {
-//         const songs = await prisma.song.findMany({
-//             where: {
-//                 status: true,
-//             }
-//         });
-
-//         res.status(200).json({
-//             ok: true,
-//             data: songs,
-//         });
-//     } catch (error) {
-//         res.status(500).json({ ok: false, message: error });
-//     }
-// };
