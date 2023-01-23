@@ -4,20 +4,26 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export const findAll = async (req: Request, res: Response): Promise<void>=> {
-    //const token = req.headers
-    const token = 1;
-    let songs = [];
     try {
-        if (token){
-            songs = await prisma.song.findMany();
-        }else{
-            songs = await prisma.song.findMany({
-                where: {
-                    status: false,
-                }
-            });
-        }
-        
+        let songs = await prisma.song.findMany();
+
+        res.status(200).json({
+            ok: true,
+            data: songs,
+        });
+    } catch (error) {
+        res.status(500).json({ ok: false, message: error });
+    }
+};
+
+
+export const findAllPublic = async (req: Request, res: Response): Promise<void>=> {
+    try {
+        let songs = await prisma.song.findMany({
+            where: {
+                estado: "publico",
+            }
+        });
 
         res.status(200).json({
             ok: true,
