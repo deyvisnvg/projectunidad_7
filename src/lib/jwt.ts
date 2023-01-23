@@ -22,7 +22,7 @@ export const checkOwn = async (req: Request, res: Response, next: NextFunction) 
         const bearerToken = authHeader.split(' ')[1]
 
         const payload = await verifyJwt(bearerToken, res);
-        req.body = payload;
+        //req.body = payload;
 
         return next()
     } catch (error) {
