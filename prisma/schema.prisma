@@ -32,7 +32,7 @@ model Song {
   status     Boolean @default(false)
   updated_at DateTime @updatedAt
 
-  playlist_songs Playlist_song[]
+  playlists Playlist[]
 
   @@map("songs")
 }
@@ -42,18 +42,8 @@ model Playlist {
   name    String
   user    User   @relation(fields: [user_id], references: [id])
   user_id Int
-
-  playlist_songs Playlist_song[]
+  
+  songs Song [] 
 
   @@map("playlists")
-}
-
-model Playlist_song {
-  id          Int      @id @default(autoincrement())
-  playlist    Playlist @relation(fields: [playlist_id], references: [id])
-  playlist_id Int
-  songs       Song     @relation(fields: [song_id], references: [id])
-  song_id     Int
-
-  @@map("playlist_songs")
 }
