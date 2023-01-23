@@ -21,8 +21,6 @@ model User {
   @@map("users")
 }
 
-
-
 model Song {
   id         Int      @id @default(autoincrement())
   name       String
@@ -39,8 +37,6 @@ model Song {
   @@map("songs")
 }
 
-
-
 model Playlist {
   id      Int    @id @default(autoincrement())
   name    String
@@ -51,5 +47,3 @@ model Playlist {
 
   @@map("playlists")
 }
-
-
