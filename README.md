@@ -185,7 +185,7 @@
 
   _Condiciones:_
 
-  - Recuerda para agreagr la canción a la  playlist debes estar logueado.
+  - Recuerda para crear  la  playlist debes estar logueado.
   - El usuario no puede crear 2 playlist con el mismo nombre ya que estaria duplicando una que ya esta creada.
   - Enviar el siguiente **json** en el body del Postman. Ej.
 
@@ -213,7 +213,7 @@
 
   _Condiciones:_
 
-  - Recuerda para crear la canción debes estar logueado.
+  - Recuerda para agregar la canción debes estar logueado.
   - El usuario no puede adicionar las misma canción en la playlist ya que estaria duplicando.
   - Enviar lo siguiente en el body del Postman. Ej.
 
