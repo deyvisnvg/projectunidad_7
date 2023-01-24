@@ -42,6 +42,8 @@
 
 - **Crear usuarios**
 
+  > Method: POST
+
   > http://localhost:3001/api/v1/users/add
 
   _Condiciones:_
@@ -58,6 +60,8 @@
     ```
 
 - **Login usuario**
+
+  > Method: POST
 
   > http://localhost:3002/api/v1/users/login
 
@@ -87,6 +91,8 @@
 
 - **Obtener lista de usuarios**
 
+  > Method: GET
+
   > http://localhost:3001/api/v1/users/
 
   _Condiciones:_
@@ -96,10 +102,12 @@
   - Para **listar usuarios**, enviar la siguiente authentification en el header del Postman. Ej.
 
     ```bash
-    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    Authorization: Bearer $token_generado
     ```
 
 - **Buscar usuario por id**
+
+  > Method: GET
 
   > http://localhost:3001/api/v1/users/id
 
@@ -108,12 +116,13 @@
   - Para **buscar un usuario**, enviar la siguiente authentification en el header del Postman. Ej.
 
     ```bash
-    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    Authorization: Bearer $token_generado
     ```
 
 ### Componente song
 
 - **Crear song**
+  > Method: POST
 
   > http://localhost:3001/api/v1/songs/add
 
@@ -122,8 +131,7 @@
   - Para **crear un song**, enviar la siguiente authentification en el header del Postman(el token se obtine cuando haces el login). Ej.
 
     ```bash
-    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
-
+    Authorization: Bearer $token_generado
     ```
 
   - Para **crear un song**, enviar el siguiente **json** en el body del Postman. Ej.
@@ -142,13 +150,17 @@
 
 - **Obtener lista de songs sin estar autenticados(públicas)**
 
+  > Method: GET
+
   > http://localhost:3001/api/v1/songs/public
 
   _Condiciones:_
 
-  - El usuario no debe estar autenticado necesariamente, solo hacer una petición GET a la ruta.
+  - El usuario no debe estar autenticado necesariamente.
 
 - **Obtener lista de songs estando autenticados(privadas y públicas)**
+
+  > Method: GET
 
   > http://localhost:3001/api/v1/songs
 
@@ -157,12 +169,13 @@
   - Para obtener **songs** privadas y públicas lo primero es enviar la siguiente authentification en el header del Postman(el token se obtine cuando haces el login). Ej.
 
     ```bash
-    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    Authorization: Bearer $token_generado
     ```
 
   - Despues hacer una peticion get a la ruta proporcionada.
 
 - **Buscar song por id**
+  > Method: GET
 
   > http://localhost:3001/api/v1/songs/id
 
@@ -171,7 +184,7 @@
   - Para **buscar un song por id**, enviar la siguiente authentification en el header del Postman(el token se obtine cuando haces el login). Ej.
 
     ```bash
-    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    Authorization: Bearer $token_generado
     ```
 
   - En la ruta se reemplaza **id** por la id de la song que se quiere mostrar y se realiza una peticion GET.
