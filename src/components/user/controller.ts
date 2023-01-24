@@ -25,7 +25,7 @@ export const findId = async (req: Request, res: Response): Promise<void> => {
 
         const user = await prisma.user.findFirst({
             where: {
-                id: parseInt(params.id)
+                id: Number(params.id)
             }
         });
 

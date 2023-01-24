@@ -17,12 +17,9 @@ export const checkOwn = async (req: Request, res: Response, next: NextFunction) 
         return res.status(401).json({ error: 'access unauthorized' })
     }
 
-
     try {
         const bearerToken = authHeader.split(' ')[1]
-
-        const payload = await verifyJwt(bearerToken, res);
-        //req.body = payload;
+        await verifyJwt(bearerToken, res);
 
         return next()
     } catch (error) {

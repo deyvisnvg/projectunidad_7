@@ -1,11 +1,16 @@
-import { type Application } from "express";
-import userRouter from "../components/user";
-import songRouter from "../components/songs";
-import playlistRouter from "../components/playlist";
+import { type Application, Router } from "express";
+import * as controller from "../components";
 
-export default (app: Application) => {
-    app.use("/api/v1/users", userRouter);
-    app.use("/api/v1/songs", songRouter);
-    app.use("/api/v1/playlist", playlistRouter);
-    
+const listRouter: [string, Router][] = [
+    ["user", controller.UserRouter],
+    ["songs", controller.SongRouter],
+    ["playlist", controller.PlaylistRouter]
+];
+
+const routes = (app: Application) => {
+    listRouter.forEach(([path, controller]) => {
+        app.use(`/api/v1/${path}`, controller)
+    });
 }
+
+export default routes;
