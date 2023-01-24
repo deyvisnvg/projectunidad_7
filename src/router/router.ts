@@ -2,7 +2,7 @@ import { type Application, Router } from "express";
 import * as controller from "../components";
 
 const listRouter: [string, Router][] = [
-    ["user", controller.UserRouter],
+    ["users", controller.UserRouter],
     ["songs", controller.SongRouter],
     ["playlist", controller.PlaylistRouter]
 ];
