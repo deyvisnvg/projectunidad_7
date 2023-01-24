@@ -42,6 +42,8 @@
 
 - **Crear usuarios**
 
+  > Method: POST
+
   > http://localhost:3001/api/v1/users/add
 
   _Condiciones:_
@@ -58,6 +60,8 @@
     ```
 
 - **Login usuario**
+
+  > Method: POST
 
   > http://localhost:3002/api/v1/users/login
 
@@ -87,6 +91,8 @@
 
 - **Obtener lista de usuarios**
 
+  > Method: GET
+
   > http://localhost:3001/api/v1/users/
 
   _Condiciones:_
@@ -96,10 +102,12 @@
   - Para **listar usuarios**, enviar la siguiente authentification en el header del Postman. Ej.
 
     ```bash
-    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    Authorization: Bearer $token_generado
     ```
 
 - **Buscar usuario por id**
+
+  > Method: GET
 
   > http://localhost:3001/api/v1/users/id
 
@@ -108,7 +116,7 @@
   - Para **buscar un usuario**, enviar la siguiente authentification en el header del Postman. Ej.
 
     ```bash
-    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    Authorization: Bearer $token_generado
     ```
 
 ### Componente song
