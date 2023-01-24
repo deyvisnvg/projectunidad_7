@@ -105,6 +105,68 @@ Creación de playlist
     Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
     ```
 
+
+### Componente song
+
+- **Crear song**
+
+  > http://localhost:3001/api/v1/songs/add
+
+  _Condiciones:_
+
+  - Para **crear un song**, enviar la siguiente authentification en el header del Postman(el token se obtine cuando haces el login). Ej.
+  
+    ```bash
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+
+  - Para **crear un song**, enviar el siguiente **json** en el body del Postman. Ej.
+
+    ```bash
+    {
+        "name": "A puro dolor",
+        "artist": "Sin bandera",
+        "album": "Album 1",
+        "year": 2015,
+        "genero": "Baladas",
+        "duration": 120,
+        "estado": "privado"
+    }
+    ```
+
+- **Obtener lista de songs sin estar autenticados(públicas)**
+
+  > http://localhost:3001/api/v1/songs/public
+
+  _Condiciones:_
+
+  - El usuario no debe estar autenticado necesariamente, solo hacer una petición GET a la ruta.
+
+- **Obtener lista de songs estando autenticados(privadas y públicas)**
+
+  > http://localhost:3001/api/v1/songs
+
+  _Condiciones:_
+
+  - Para obtener **songs** privadas y públicas lo primero es enviar la siguiente authentification en el header del Postman(el token se obtine cuando haces el login). Ej.
+
+    ```bash
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    ```
+  - Despues hacer una peticion get a la ruta proporcionada.
+
+- **Buscar song por id**
+
+  > http://localhost:3001/api/v1/songs/id
+
+  _Condiciones:_
+
+  - Para **buscar un song por id**, enviar la siguiente authentification en el header del Postman(el token se obtine cuando haces el login). Ej.
+
+    ```bash
+    Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    ```
+  - En la ruta se reemplaza **id** por la id de la song que se quiere mostrar y se realiza una peticion GET.
+
 ## Usando las siguientes técnologias 🚀
 
 - NodeJs y Express
