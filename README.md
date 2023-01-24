@@ -185,9 +185,8 @@
 
   _Condiciones:_
 
-  - Recuerda para crear la playlist debes estar loqueado.
-  - Para **crear una playlist**
-  - Recuerda que el usuario no puede crear 2 playlist con el mismo nombre ya que estaria duplicando una que ya esta creada.
+  - Recuerda para agreagr la canción a la  playlist debes estar logueado.
+  - El usuario no puede crear 2 playlist con el mismo nombre ya que estaria duplicando una que ya esta creada.
   - Enviar el siguiente **json** en el body del Postman. Ej.
 
   ```bash
@@ -214,10 +213,9 @@
 
   _Condiciones:_
 
-  - Recuerda para crear la canción debes estar loqueado.
-  - Para **crear una canción**
-  - Recuerda que el usuario no puede adicionar las misma canción en la playlist ya que estaria duplicando.
-  - Enviar lo siguiente **id de la  playlist / id de  song json** en el body del Postman. Ej.
+  - Recuerda para crear la canción debes estar logueado.
+  - El usuario no puede adicionar las misma canción en la playlist ya que estaria duplicando.
+  - Enviar lo siguiente en el body del Postman. Ej.
 
   ```bash
           {
@@ -241,12 +239,11 @@
 
   _Condiciones:_
 
-- Recuerda para crear la canción debes estar loqueado.
-  - Para **que el usuario busque por el ID playlist**, enviar
+- Para buscar la canción por el id tienes que estar logueado.
+  
     **ID POR PARAMETRO** sigue el ejm de la URL, siguiente authentification en el header del Postman. Ej.
 
-  - recuerda todo este procedimiento se realiza [**CREAR PLAYLIST Y ADICIONAR LA CANCIÓN EN LA PLAYLIST**] en el header de
-    postman agregando un nuevo campo **[key : Authorization/ value seria el bearer + el Token]**
+  - ejemplo:
 
     ```bash
     Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
