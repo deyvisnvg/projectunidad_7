@@ -180,7 +180,7 @@
 
 - **Crear playlist**
 
-  > method: POST
+  > Method: POST
   > http://localhost:3001/api/v1/playlist
 
   _Condiciones:_
@@ -189,57 +189,59 @@
   - El usuario no puede crear 2 playlist con el mismo nombre ya que estaria duplicando una que ya esta creada.
   - Enviar el siguiente **json** en el body del Postman. Ej.
 
-  ```bash
-   {
-      "name": "Playlist 1",  # nombre de la playlist
-      "user_id": 2,    # ID del user
-   }
-  ```
+    ```bash
+    {
+        "name": "Playlist 1",  # nombre de la playlist
+        "user_id": 2,    # ID del user
+    }
+    ```
 
   - Response
 
-  ```bash
-      "message": "Playlist creada exitosamente",
-      "data": {
-          "id": 1,
-          "name": "playlist 1",
-          "user_id": 2
-      }
-  ```
+    ```bash
+        "message": "Playlist creada exitosamente",
+        "data": {
+            "id": 1,
+            "name": "playlist 1",
+            "user_id": 2
+        }
+    ```
 
-  - **Agregar una canción a la playlist**
-    > method: POST
+- **Agregar una canción a la playlist**
+    > Method: POST
+
     > http://localhost:3001/api/v1/playlist/addSong
 
-  _Condiciones:_
+   _Condiciones:_
 
   - Recuerda para agregar la canción debes estar logueado.
   - El usuario no puede adicionar las misma canción en la playlist ya que estaria duplicando.
   - Enviar lo siguiente en el body del Postman. Ej.
 
-  ```bash
-          {
-        "id_song": 2,  # id canción agregar
-        "id_playlist": 1,  # id de la playlist que desea agregar esa canción
-          }
-  ```
+    ```bash
+            {
+          "id_song": 2,  # id canción agregar
+          "id_playlist": 1,  # id de la playlist que desea agregar esa canción
+            }
+     ```
 
-- Response
+  - Response
 
-  ```bash
-          {
-          "ok": true,
-          "message": "Canción creada correctamente"
-          }
-  ```
+    ```bash
+            {
+            "ok": true,
+            "message": "Canción creada correctamente"
+            }
+     ```
 
-  - **Buscar Playlist por id**
-    > method: GET
+- **Buscar Playlist por id**
+    > Method: GET
+
     > http://localhost:3001/api/v1/playlist/1
 
   _Condiciones:_
 
-- Para buscar la canción por el id tienes que estar logueado.
+  - Para buscar la canción por el id tienes que estar logueado.
   
     **ID POR PARAMETRO** sigue el ejm de la URL, siguiente authentification en el header del Postman. Ej.
 
