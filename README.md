@@ -193,79 +193,89 @@
 
 - **Crear playlist**
 
-  > method: POST
+  > Method: POST
+
   > http://localhost:3001/api/v1/playlist
 
   _Condiciones:_
 
-  - Recuerda para crear la playlist debes estar loqueado.
-  - Para **crear una playlist**
+  - Recuerda para crear  la  playlist debes estar logueado.
+  - El usuario no puede crear 2 playlist con el mismo nombre ya que estaria duplicando una que ya esta creada.
   - Enviar el siguiente **json** en el body del Postman. Ej.
+  
+    ```bash
+    {
+        "name": "Playlist 1",  # nombre de la playlist
+        "user_id": 2,    # ID del user
+    }
+    ```
+  
+  - Enviar la autenticación en el Postman:
 
-  ```bash
-   {
-      "name": "Playlist 1",  #nombre de la playlist
-      "user_id": 2,    # ID de la playlist
-   }
-  ```
+    ```bash
+    Authorization:  Bearer $token_generado
+    ```
 
   - Response
 
-  ```bash
+    ```bash
+    {
       "message": "Playlist creada exitosamente",
       "data": {
-          "id": 1,
-          "name": "playlist 1",
-          "user_id": 2
-      }
-  ```
+                "id": 1,
+                "name": "playlist 1",
+                "user_id": 2
+              }
+    }
+    ```
 
-  - **Agregar una canción**
-    > method: POST
+- **Agregar una canción a la playlist**
+    > Method: POST
+
     > http://localhost:3001/api/v1/playlist/addSong
 
-  _Condiciones:_
+   _Condiciones:_
 
-  - Recuerda para crear la canción debes estar loqueado.
-  - Para **crear una canción**
-  - Enviar el siguiente **json** en el body del Postman. Ej.
+  - Recuerda para agregar la canción debes estar logueado.
+  - El usuario no puede adicionar las misma canción en la playlist ya que estaria duplicando.
+  - Enviar lo siguiente en el body del Postman. Ej.
 
-  ```bash
-      {
-          "name": "You're So High",
-          "artist": "Eli & Fur",
-          "album": "Album 1",
-          "year": 2020,
-          "genero": "DeepHouse",
-          "duration": 120,
-          "estado": "publico"
-      }
-  ```
+    ```bash
+    Authorization:  Bearer $token_generado
+    ```
 
-- Response
+    ```bash
+    {
+      "id_song": 2,  # id canción agregar
+      "id_playlist": 1,  # id de la playlist que desea agregar esa canción
+    }
+     ```
 
-  ```bash
-          {
-          "ok": true,
-          "message": "Canción creada correctamente"
-          }
-  ```
+  - Response
 
-  - **Buscar Playlist por id**
-    > method: GET
+    ```bash
+    {
+      "ok": true,
+      "message": "Canción creada correctamente"
+    }
+     ```
+
+- **Buscar Playlist por id**
+    > Method: GET
+
     > http://localhost:3001/api/v1/playlist/1
 
   _Condiciones:_
 
-  - Para **que el usuario busque por el ID playlist**, enviar
+  - Para buscar la canción por el id tienes que estar logueado.
+  
     **ID POR PARAMETRO** sigue el ejm de la URL, siguiente authentification en el header del Postman. Ej.
-
-  - recuerda todo este procedimiento se realiza [**CREAR PLAYLIST Y ADICIONAR LA CANCIÓN EN LA PLAYLIST**] en el header de
-    postman agregando un nuevo campo **[key : Authorization/ value seria el bearer + el Token]**
-
+  
     ```bash
-    Authorization:  Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwibmFtZSI6ImdpbGxpYW4iLCJlbWFpbCI6ImdpbGxpYW5AZ21haWwuY29tIiwiaWF0IjoxNjc0MzY2ODM2LCJleHAiOjE2NzQzNjY4ODZ9.OUa1KqBxHi1v0_sILVbQCHLTAUj70XQCO9p8Q81cBbg
+    Authorization:  Bearer $token_generado
     ```
+  - Response
+
 
     ```bash
         "data": {
