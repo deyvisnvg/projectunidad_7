@@ -187,12 +187,13 @@
 
   - Recuerda para crear la playlist debes estar loqueado.
   - Para **crear una playlist**
+  - Recuerda que el usuario no puede crear 2 playlist con el mismo nombre ya que estaria duplicando una que ya esta creada.
   - Enviar el siguiente **json** en el body del Postman. Ej.
 
   ```bash
    {
-      "name": "Playlist 1",  #nombre de la playlist
-      "user_id": 2,    # ID de la playlist
+      "name": "Playlist 1",  # nombre de la playlist
+      "user_id": 2,    # ID del user
    }
   ```
 
@@ -207,7 +208,7 @@
       }
   ```
 
-  - **Agregar una canción**
+  - **Agregar una canción a la playlist**
     > method: POST
     > http://localhost:3001/api/v1/playlist/addSong
 
@@ -215,18 +216,14 @@
 
   - Recuerda para crear la canción debes estar loqueado.
   - Para **crear una canción**
-  - Enviar el siguiente **json** en el body del Postman. Ej.
+  - Recuerda que el usuario no puede adicionar las misma canción en la playlist ya que estaria duplicando.
+  - Enviar lo siguiente **id de la  playlist / id de  song json** en el body del Postman. Ej.
 
   ```bash
-      {
-          "name": "You're So High",
-          "artist": "Eli & Fur",
-          "album": "Album 1",
-          "year": 2020,
-          "genero": "DeepHouse",
-          "duration": 120,
-          "estado": "publico"
-      }
+          {
+        "id_song": 2,  # id canción agregar
+        "id_playlist": 1,  # id de la playlist que desea agregar esa canción
+          }
   ```
 
 - Response
@@ -244,6 +241,7 @@
 
   _Condiciones:_
 
+- Recuerda para crear la canción debes estar loqueado.
   - Para **que el usuario busque por el ID playlist**, enviar
     **ID POR PARAMETRO** sigue el ejm de la URL, siguiente authentification en el header del Postman. Ej.
 
